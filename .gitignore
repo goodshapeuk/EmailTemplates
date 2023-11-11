@@ -1,0 +1,7 @@
+#Any locally downloaded examples to be removed.
+*.zip
+*.log
+*-EmailTemplates-*
+Set-OutlookSignatures-Set-OutlookSignatures-*
+test
+test\*
