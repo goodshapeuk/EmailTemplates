@@ -44,7 +44,7 @@ $DeleteUserCreatedSignatures = "false"  #REQ TRUE FOR GO-LIVE
 $DocxHighResImageConversion = "false"
 $SetCurrentUserOutlookWebSignature = "true"
 $MirrorLocalSignaturesToCloud = "true" #not used
-$DeleteScriptCreatedSignaturesWithoutTemplate = "false"
+$DeleteScriptCreatedSignaturesWithoutTemplate = "false" #not used
 
 
 # Init
@@ -105,8 +105,8 @@ $executionPath = "$githubProductOrg-$githubProductRepo-$($($productMeta.commit.s
 
 
 #Run product, with transcript logging, and args passed from variables above
-cd $temp\$executionPath
+Set-Location $temp\$executionPath
 .\Set-OutlookSignatures.ps1 -graphonly $graphOnly -SignatureTemplatePath $templateTargetPath\Signatures -SignatureIniPath $templateTargetPath\Signatures\_Signatures.ini -SetCurrentUserOOFMessage $SetOofMsg -CreateRtfSignatures $CreateRtfSignatures -CreateTxtSignatures $CreateTxtSignatures -SignaturesForAutomappedAndAdditionalMailboxes $SignaturesForAutomappedAndAdditionalMailboxes -DisableRoamingSignatures $DisableRoamingSignatures -SetCurrentUserOutlookWebSignature $SetCurrentUserOutlookWebSignature -DeleteUserCreatedSignatures $DeleteUserCreatedSignatures -DeleteScriptCreatedSignaturesWithoutTemplate $DeleteScriptCreatedSignaturesWithoutTemplate
-cd $temp
+Set-Location $temp
 Stop-Transcript 
 exit 0
